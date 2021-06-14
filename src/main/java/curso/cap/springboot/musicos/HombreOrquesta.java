@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import curso.cap.springboot.instrumentos.Instrumento;
+import lombok.Data;
 
 @Component
+@Data
 public class HombreOrquesta extends Musico{
 
 	@Autowired
@@ -23,12 +25,6 @@ public class HombreOrquesta extends Musico{
 		
 	}
 
-	public List<Instrumento> getInstrumentos() {
-		return instrumentos;
-	}
-
-	public void setInstrumentos(List<Instrumento> instrumentos) {
-		this.instrumentos = instrumentos;
-	}
+	
 
 }

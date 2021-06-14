@@ -5,8 +5,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import curso.cap.springboot.instrumentos.Instrumento;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-@Component
+//@Component
+@Data
 
 public class Solista extends Musico {
 
@@ -19,7 +26,8 @@ public class Solista extends Musico {
 		System.out.println(getInstrumento().sonar());
 
 	}
-
+	
+	
 
 
 }

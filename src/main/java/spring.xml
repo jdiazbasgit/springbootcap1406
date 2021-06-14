@@ -3,28 +3,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
-	<bean class="curso.cap.springboot.instrumentos.Instrumento"
+	<!-- <bean class="curso.cap.springboot.instrumentos.Instrumento"
 		id="tambor" autowire-candidate="false" p:sonido="pom, pom, pom en p">
-		<!-- <property name="sonido" value="pom, pom, pom en xml"></property> -->
+		<property name="sonido" value="pom, pom, pom en xml"></property>
 	</bean>
 
 	<bean class="curso.cap.springboot.instrumentos.Instrumento"
 		id="instrumento" autowire-candidate="false"
 		p:sonido="tuu, tuuu, tuu en p">
-		<!-- <property name="sonido" value="tuuu , tuuu , tuu en xml "></property> -->
+		<property name="sonido" value="tuuu , tuuu , tuu en xml "></property>
 	</bean>
 
 	<bean class="curso.cap.springboot.instrumentos.Instrumento"
 		id="guitarra" autowire-candidate="true"
 		p:sonido="tlan, tlan, y+tlan, en p">
-		<!-- <property name="sonido" value="tlan, tlan, tlan en xml"></property> -->
+		<property name="sonido" value="tlan, tlan, tlan en xml"></property>
 	</bean>
 	<bean class="curso.cap.springboot.musicos.Solista" id="solista"
 		autowire="byName">
-		<!-- <property name="instrumento" ref="tambor"></property> -->
+		<property name="instrumento" ref="tambor"></property>
 	</bean>
 
 	<util:list id="lista">
@@ -47,8 +49,12 @@
 
 	<bean class="curso.cap.springboot.musicos.HombreOrquesta"
 		id="hombreOrquesta" p:instrumentos-ref="lista">
-		<!-- <property name="instrumentos">
-		</property> -->
+		<property name="instrumentos">
+		</property>
 	</bean>
+ -->
+
+
+<context:component-scan base-package="curso.cap.springboot"></context:component-scan>
 
 </beans>

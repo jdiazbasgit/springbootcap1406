@@ -1,9 +1,17 @@
 package curso.cap.springboot.musicos;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import curso.cap.springboot.instrumentos.Instrumento;
+
+@Component
 
 public class Solista extends Musico {
 
+	@Autowired
+	@Qualifier("tambor")
 	private Instrumento instrumento;
 	
 	@Override
@@ -12,12 +20,6 @@ public class Solista extends Musico {
 
 	}
 
-	public Instrumento getInstrumento() {
-		return instrumento;
-	}
 
-	public void setInstrumento(Instrumento instrumento) {
-		this.instrumento = instrumento;
-	}
 
 }

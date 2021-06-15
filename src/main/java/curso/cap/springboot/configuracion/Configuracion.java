@@ -10,7 +10,6 @@ import curso.cap.springboot.musicos.Solista;
 
 @Configuration
 @ComponentScan("curso.cap.springboot")
-@EnableAspectJAutoProxy
 public class Configuracion {
 
 	

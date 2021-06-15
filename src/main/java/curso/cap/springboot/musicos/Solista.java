@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import curso.cap.springboot.anotaciones.Vigilado;
 import curso.cap.springboot.instrumentos.Instrumento;
+import curso.cap.springboot.instrumentos.InstrumentoInteface;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,7 +21,7 @@ public class Solista extends Musico {
 
 	@Autowired
 	@Qualifier("tambor")
-	private Instrumento instrumento;
+	private InstrumentoInteface instrumento;
 	
 	@Override
 	@Vigilado

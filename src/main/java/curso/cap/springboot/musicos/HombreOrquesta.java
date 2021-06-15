@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import curso.cap.springboot.anotaciones.Vigilado;
 import curso.cap.springboot.instrumentos.Instrumento;
+import curso.cap.springboot.instrumentos.InstrumentoInteface;
 import lombok.Data;
 
 @Component
@@ -16,12 +17,12 @@ public class HombreOrquesta extends Musico{
 
 	@Autowired
 	@Qualifier("tocameAMI")
-	private List<Instrumento> instrumentos;
+	private List<InstrumentoInteface> instrumentos;
 	
 	@Override
 	@Vigilado
 	public void tocar() {
-		for (Instrumento instrumento : getInstrumentos()) {
+		for (InstrumentoInteface instrumento : getInstrumentos()) {
 			System.out.println(instrumento.sonar());
 		}
 		

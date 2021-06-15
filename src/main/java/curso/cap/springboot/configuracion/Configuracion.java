@@ -15,25 +15,17 @@ import curso.cap.springboot.musicos.Solista;
 public class Configuracion {
 
 	
-	@Bean
-	public Solista solista() {
-		Solista solista= new Solista();
-		solista.setInstrumento(tambor());
-		return solista;
-	}
-	
-	@Bean
-	@Qualifier("tocameAMI")
-	public Tambor tambor() {
-		
-		Tambor tambor= new Tambor();
-		tambor.setSonido(getSonido());
-		return tambor;
-	}
-	
-	
-	public String getSonido() {
-		return "federico toca el tambor";
-	}
-	
+	/*
+	 * @Bean public Solista solista() { Solista solista= new Solista();
+	 * solista.setInstrumento(tambor()); return solista; }
+	 * 
+	 * @Bean
+	 * 
+	 * @Qualifier("tocameAMI") public Tambor tambor() {
+	 * 
+	 * Tambor tambor= new Tambor(); tambor.setSonido(getSonido()); return tambor; }
+	 * 
+	 * 
+	 * public String getSonido() { return "federico toca el tambor"; }
+	 */
 }

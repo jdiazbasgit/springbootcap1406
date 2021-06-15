@@ -1,11 +1,12 @@
 package curso.cap.springboot.teatros;
 
+import curso.cap.springboot.excepciones.InstrumentoRotoException;
 import curso.cap.springboot.instrumentos.Instrumento;
 import curso.cap.springboot.musicos.Solista;
 
 public class ConciertoSolista {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InstrumentoRotoException {
 	
 		Instrumento instrumento= new Instrumento();
 		instrumento.setSonido("pom ,pom, pom");

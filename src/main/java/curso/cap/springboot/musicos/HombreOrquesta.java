@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import curso.cap.springboot.anotaciones.Vigilado;
+import curso.cap.springboot.excepciones.InstrumentoRotoException;
 import curso.cap.springboot.instrumentos.Instrumento;
 import curso.cap.springboot.instrumentos.InstrumentoInteface;
 import lombok.Data;
@@ -17,12 +18,12 @@ public class HombreOrquesta extends Musico{
 
 	@Autowired
 	@Qualifier("tocameAMI")
-	private List<InstrumentoInteface> instrumentos;
+	private List<Instrumento> instrumentos;
 	
 	@Override
 	@Vigilado
-	public void tocar() {
-		for (InstrumentoInteface instrumento : getInstrumentos()) {
+	public void tocar() throws InstrumentoRotoException {
+		for (Instrumento instrumento : getInstrumentos()) {
 			System.out.println(instrumento.sonar());
 		}
 		

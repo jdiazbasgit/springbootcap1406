@@ -2,12 +2,13 @@ package curso.cap.springboot.teatros;
 
 import java.util.ArrayList;
 
+import curso.cap.springboot.excepciones.InstrumentoRotoException;
 import curso.cap.springboot.instrumentos.Instrumento;
 import curso.cap.springboot.musicos.HombreOrquesta;
 
 public class ConciertoHombreOrquesta {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InstrumentoRotoException {
 		Instrumento tambor= new Instrumento();
 		Instrumento trompeta= new  Instrumento();
 		Instrumento guitarra= new Instrumento();

@@ -3,13 +3,14 @@ package curso.cap.springboot.teatros;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import curso.cap.springboot.excepciones.InstrumentoRotoException;
 import curso.cap.springboot.instrumentos.Instrumento;
 import curso.cap.springboot.musicos.HombreOrquesta;
 import curso.cap.springboot.musicos.Solista;
 
 public class PruebaScope {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InstrumentoRotoException {
 		ApplicationContext contexto= new ClassPathXmlApplicationContext("spring.xml");
 		Solista solista= (Solista) contexto.getBean("solista");
 		HombreOrquesta hombreOrquesta= (HombreOrquesta) contexto.getBean("hombreOrquesta");

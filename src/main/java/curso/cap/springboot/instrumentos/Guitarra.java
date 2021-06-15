@@ -11,7 +11,7 @@ public class Guitarra extends Instrumento{
 	
 	
 	@Override
-	@Value("tlqn taln tlan en anotaciones")
+	@Value("nadaaaaaaa")
 	public void setSonido(String sonido) {
 		
 		super.setSonido(sonido);

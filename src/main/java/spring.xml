@@ -27,9 +27,29 @@
 		/> <ref bean="instrumento" /> </util:list> <bean class="curso.cap.springboot.musicos.HombreOrquesta" 
 		id="hombreOrquesta" p:instrumentos-ref="lista"> <property name="instrumentos"> 
 		</property> </bean> -->
-	
-<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<bean class="curso.cap.springboot.aspectos.AvisadorDeAudiencia"
+		id="avisador"></bean>
+
+	<aop:config>
+		<aop:aspect ref="avisador">
+			<aop:pointcut
+				expression="execution(@curso.cap.springboot.anotaciones.Vigilado * *.*(..))"
+				id="sujetador" />
+			<aop:before method="apagarMoviles()"
+				pointcut-ref="sujetador" />
+			<aop:after-returning method="encenderMoviles()"
+				pointcut-ref="sujetador" />
+			<aop:after-throwing method="instrumentoRoto()"
+				pointcut-ref="sujetador" />
+		</aop:aspect>
+	</aop:config>
+
 	<context:component-scan
 		base-package="curso.cap.springboot"></context:component-scan>
+
+
 
 </beans>

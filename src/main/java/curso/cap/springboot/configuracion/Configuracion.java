@@ -1,5 +1,6 @@
 package curso.cap.springboot.configuracion;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,7 @@ import curso.cap.springboot.musicos.Solista;
 
 @Configuration
 @ComponentScan("curso.cap.springboot")
+@EnableAspectJAutoProxy
 public class Configuracion {
 
 	
@@ -21,6 +23,7 @@ public class Configuracion {
 	}
 	
 	@Bean
+	@Qualifier("tocameAMI")
 	public Tambor tambor() {
 		
 		Tambor tambor= new Tambor();

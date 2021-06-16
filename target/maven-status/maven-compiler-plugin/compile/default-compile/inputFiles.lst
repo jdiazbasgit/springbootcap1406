@@ -1,2 +1,12 @@
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/entidades/DatoPersonal.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/entidades/Hijo.java
 /Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/ServletInitializer.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/repositorios/DatoLaboralCRUDRepository.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/entidades/Empleado.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/repositorios/EmpleadoCRUDRepository.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/repositorios/DatoPersonalCRUDRepository.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/repositorios/CargoCRUDRepository.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/entidades/Cargo.java
 /Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/PrimerBootApplication.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/repositorios/HijoCRUDRepository.java
+/Users/javierdiaz/git/springbootcap1406/src/main/java/curso/cap/springboot/entidades/DatoLaboral.java

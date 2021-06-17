@@ -33,12 +33,12 @@ public class Empleado {
 	
 	private GregorianCalendar fechaNacimiento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "datos_laborales_id")
 	@Fetch(FetchMode.SELECT)
 	private DatoLaboral datoLaboral;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "datos_personales_id")
 	@Fetch(FetchMode.SELECT)
 	private DatoPersonal datoPersonal;

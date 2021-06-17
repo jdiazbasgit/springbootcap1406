@@ -23,7 +23,7 @@ public class DatoPersonal {
 	
 	private String estadoCivil;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "hijos_id")
 	@Fetch(FetchMode.SELECT)
 	private Hijo hijo;

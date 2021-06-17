@@ -29,7 +29,7 @@ public class DatoLaboral {
 	
 	private GregorianCalendar fechaAlta;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cargos_id")
 	@Fetch(FetchMode.SELECT)
 	private Cargo cargo;

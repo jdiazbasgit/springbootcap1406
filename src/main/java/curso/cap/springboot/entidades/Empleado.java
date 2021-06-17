@@ -3,12 +3,16 @@ package curso.cap.springboot.entidades;
 import java.util.GregorianCalendar;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import lombok.Data;
 
@@ -29,12 +33,14 @@ public class Empleado {
 	
 	private GregorianCalendar fechaNacimiento;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "datos_laborales_id")
+	@Fetch(FetchMode.SELECT)
 	private DatoLaboral datoLaboral;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "datos_personales_id")
+	@Fetch(FetchMode.SELECT)
 	private DatoPersonal datoPersonal;
 
 }

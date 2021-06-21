@@ -9,6 +9,7 @@
 <body>
 
 <h1>ESTAMOS EN UN CURSO DE SPRING</h1>
+<h1>${sessionScope}</h1>
 
 </body>
 </html>

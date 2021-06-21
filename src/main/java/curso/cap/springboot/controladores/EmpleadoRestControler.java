@@ -1,6 +1,9 @@
 package curso.cap.springboot.controladores;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,16 +26,53 @@ public class EmpleadoRestControler {
 	private EmpleadoCRUDRepository repository;
 
 	@GetMapping("/empleados")
-	public Iterable<Empleado> cargos() {
-		return getRepository().findAll();
+	public Resources<Empleado> empleados() {
+		Iterable<Empleado> empleados=getRepository().findAll();
+		for (Empleado empleado : empleados) {
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(DatosLaboralesRestController.class).getDatoLaboralFreomID(empleado.getDatoLaboral().getIdDatoLaboral())).withRel("dato_laboral"));
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(DatosPersonalesRestController.class).getDatoPersonalFromID(empleado.getDatoPersonal().getIdDatoPersonal())).withRel("dato_personal"));
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(EmpleadoRestControler.class).getEmpleadoById(empleado.getIdEmpleado())).withSelfRel());
+		}
+		
+		
+		return new Resources<Empleado>(empleados);
 
 	}
 
 	@GetMapping("/empleados/{id}")
-	public Empleado getCargoById(@PathVariable int id) {
+	public Resource<Empleado> getEmpleadoById(@PathVariable int id) {
 		if (getRepository().findById(id).isPresent())
-			return getRepository().findById(id).get();
+		{
+			Empleado empleado= getRepository().findById(id).get();
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(DatosLaboralesRestController.class).getDatoLaboralFreomID(empleado.getDatoLaboral().getIdDatoLaboral())).withRel("dato_laboral"));
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(DatosPersonalesRestController.class).getDatoPersonalFromID(empleado.getDatoPersonal().getIdDatoPersonal())).withRel("dato_personal"));
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(EmpleadoRestControler.class).getEmpleadoById(empleado.getIdEmpleado())).withSelfRel());
+			return new Resource(empleado);
+		}
 		return null;
+	}
+	
+	@GetMapping("/empleados/hijos/{chicos}")
+	public Resources<Empleado> getEmpleadosByNumeroDeChicos(@PathVariable int chicos) {
+		
+		Iterable<Empleado> empleados=getRepository().getEmpleadosByNumeroDeChicos(chicos);
+		for (Empleado empleado : empleados) {
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(DatosLaboralesRestController.class).getDatoLaboralFreomID(empleado.getDatoLaboral().getIdDatoLaboral())).withRel("dato_laboral"));
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(DatosPersonalesRestController.class).getDatoPersonalFromID(empleado.getDatoPersonal().getIdDatoPersonal())).withRel("dato_personal"));
+			empleado.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.
+					methodOn(EmpleadoRestControler.class).getEmpleadoById(empleado.getIdEmpleado())).withSelfRel());
+		}
+		
+		return new Resources<Empleado>(empleados);
+		
 	}
 
 	

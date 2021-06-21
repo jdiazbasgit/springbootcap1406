@@ -6,12 +6,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import curso.cap.springboot.entidades.Cargo;
 import curso.cap.springboot.entidades.Hijo;
 
-public interface HijoCRUDRepository extends CrudRepository<Hijo, Integer> {
+public interface HijoCRUDRepository extends CrudRepository<Hijo, Integer>,PagingAndSortingRepository<Hijo, Integer> {
 	
 	
 	//@Query(value="select id,chicos,chicas from hijos where chicos>:chicos",nativeQuery = true)

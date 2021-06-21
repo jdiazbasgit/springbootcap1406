@@ -2,6 +2,7 @@ package curso.cap.springboot.entidades;
 
 import java.util.GregorianCalendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,17 +14,19 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.hateoas.ResourceSupport;
 
 import lombok.Data;
 
 @Entity
 @Table(name = "empleados")
 @Data
-public class Empleado {
+public class Empleado extends ResourceSupport{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@Column(name = "id")
+	private int idEmpleado;
 	
 	private String nombre;
 	
@@ -35,12 +38,12 @@ public class Empleado {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "datos_laborales_id")
-	@Fetch(FetchMode.SELECT)
+	@Fetch(FetchMode.JOIN)
 	private DatoLaboral datoLaboral;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "datos_personales_id")
-	@Fetch(FetchMode.SELECT)
+	@Fetch(FetchMode.JOIN)
 	private DatoPersonal datoPersonal;
 
 }

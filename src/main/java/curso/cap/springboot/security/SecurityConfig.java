@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import curso.cap.springboot.servicios.UserDetailCursoService;
 import lombok.Data;
@@ -20,18 +21,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.authorizeRequests().antMatchers("/login").permitAll();
+		//http.authorizeRequests().antMatchers("/login").permitAll();
+		//http.authorizeRequests().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/user").permitAll();
 		http.authorizeRequests().anyRequest().authenticated();
-		
-		http.formLogin().loginPage("/login");
-		http.formLogin().loginProcessingUrl("/autenticar");
-		http.formLogin().usernameParameter("usuario");
-		http.formLogin().passwordParameter("clave");
-		http.formLogin().defaultSuccessUrl("/");
-		http.formLogin().failureUrl("/login?error=usuario o clave no validos");
-		http.logout().logoutSuccessUrl("/login?logout=true");
+		http.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+		//http.formLogin().loginPage("/login");
+		//http.formLogin().loginProcessingUrl("/autenticar");
+		//http.formLogin().usernameParameter("usuario");
+		//http.formLogin().passwordParameter("clave");
+		//http.formLogin().defaultSuccessUrl("/");
+		//http.formLogin().failureUrl("/login?error=usuario o clave no validos");
+		//http.logout().logoutSuccessUrl("/login?logout=true");
 		http.csrf().disable();
-		http.cors();
+		//http.cors();
 		
 	}
 	

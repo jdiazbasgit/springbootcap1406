@@ -11,7 +11,7 @@
 	<groupId>curso.cap</groupId>
 	<artifactId>primerBoot</artifactId>
 	<version>1.0</version>
-	<packaging>maven-plugin</packaging>
+	<packaging>war</packaging>
 	<name>primerBoot</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

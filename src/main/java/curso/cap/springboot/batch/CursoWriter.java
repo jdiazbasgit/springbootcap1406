@@ -5,7 +5,13 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.stereotype.Component;
 
+import curso.cap.springboot.repositorios.HijoCRUDRepository;
+import lombok.Data;
+
+@Component
+@Data
 public class CursoWriter implements ItemWriter<List<Integer>>{
 
 	@Override

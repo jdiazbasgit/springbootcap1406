@@ -14,19 +14,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.springframework.hateoas.ResourceSupport;
 
 import lombok.Data;
 
 @Entity
 @Table(name = "datos_laborales")
 @Data
-public class DatoLaboral extends ResourceSupport{
+public class DatoLaboral {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private int idDatoLaboral;
+	private int id;
 	
 	private int salario;
 	

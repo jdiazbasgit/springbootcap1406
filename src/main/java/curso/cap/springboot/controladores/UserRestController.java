@@ -29,7 +29,6 @@ public class UserRestController {
     @PostMapping("/user")
     public UserDto gettoken(@RequestParam String username, @RequestParam String password){
 
-        System.out.println("estoy dentro");
         UserDto salida= new UserDto();
 
         Usuario usuario=getRepository().findByUsername(username);
@@ -51,7 +50,7 @@ public class UserRestController {
     }
 
     private String getToken(String username, Set<Rol> roles){
-        String securityKey="liberty";
+        String securityKey="capcap";
 
         String token= Jwts.builder().setId(securityKey).setSubject(username).claim("roles",roles).
                 setIssuedAt(new Date(System.currentTimeMillis())).
@@ -60,3 +59,6 @@ public class UserRestController {
         return "Bearer "+token;
     }
 }
+
+
+

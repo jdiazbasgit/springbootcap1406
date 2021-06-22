@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
         private final String HEADER = "Authorization";
         private final String PREFIX = "Bearer ";
-        private final String SECRET = "liberty";
+        private final String SECRET = "capcap";
 
         @Override
         protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
